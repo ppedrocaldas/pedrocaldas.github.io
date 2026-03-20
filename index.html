@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Caldas — Consultoria em Pagamentos</title>
+  <meta name="description" content="Consultoria especializada em otimização de pagamentos para e-commerces brasileiros. Diagnóstico, execução e modelagem de negócio.">
+  <link rel="icon" type="image/png" href="monogram.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0a0f1e;
+      color: #f0f0f0;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: #2563EB;
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: #8892a4;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .divider {
+      border: none;
+      border-top: 0.5px solid #1e2740;
+      margin: 2rem 0;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3d4f6b;
+      margin-bottom: 1rem;
+    }
+    .dores {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 2.5rem;
+    }
+    .dor {
+      background: #0d1526;
+      border: 0.5px solid #1e2740;
+      border-left: 2px solid #2563EB;
+      padding: 0.75rem 1rem;
+      font-size: 13px;
+      color: #8892a4;
+      line-height: 1.5;
+    }
+    .servicos {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+    .servico {
+      background: #0d1526;
+      border: 0.5px solid #1e2740;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .servico-tag {
+      font-size: 11px;
+      font-weight: 500;
+      background: #0f2156;
+      color: #3B82F6;
+      padding: 3px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .servico-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+    .servico-desc {
+      font-size: 13px;
+      color: #8892a4;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .servico-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .servico-items li {
+      font-size: 13px;
+      color: #8892a4;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .servico-items li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #2563EB;
+    }
+    .perfil {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #2563EB;
+      flex-shrink: 0;
+      background: #0f2156;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .avatar-initials {
+      font-size: 18px;
+      font-weight: 500;
+      color: #3B82F6;
+    }
+    .perfil-nome {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .perfil-desc {
+      font-size: 13px;
+      color: #8892a4;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .tags-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+    .tag-marca {
+      font-size: 12px;
+      background: #0d1526;
+      border: 0.5px solid #1e2740;
+      border-radius: 6px;
+      padding: 4px 10px;
+      color: #8892a4;
+    }
+    .tag-platform {
+      font-size: 12px;
+      background: #0d1526;
+      border: 0.5px solid #2563EB;
+      border-radius: 6px;
+      padding: 4px 10px;
+      color: #3B82F6;
+      font-weight: 500;
+    }
+    .stack-label {
+      font-size: 11px;
+      color: #3d4f6b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cta-block {
+      background: #0d1526;
+      border: 0.5px solid #1e2740;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+    .cta-sub {
+      font-size: 14px;
+      color: #8892a4;
+      margin-bottom: 1.5rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #2563EB;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 13px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #1d4ed8; }
+    @media (max-width: 560px) {
+      h1 { font-size: 24px; }
+      .dores { grid-template-columns: 1fr; }
+      .container { padding: 2.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="badge">Consultoria em Pagamentos</div>
+
+    <h1>Ajudo e-commerces a estruturar e otimizar operações de pagamento.</h1>
+    <p class="hero-sub">Mais de 8 anos implementando soluções de pagamento para e-commerces brasileiros — métodos de pagamento, antifraude, checkout e recorrência. Do diagnóstico à execução, junto com o seu time.</p>
+
+    <hr class="divider">
+
+    <p class="section-label">Situações em que posso ajudar</p>
+    <div class="dores">
+      <div class="dor">Taxa de aprovação abaixo do benchmark do setor</div>
+      <div class="dor">Chargeback crescendo sem causa clara</div>
+      <div class="dor">Checkout com atrito que ninguém sabe medir</div>
+      <div class="dor">Antifraude bloqueando vendas legítimas</div>
+      <div class="dor">Troca de adquirente sem critério técnico</div>
+      <div class="dor">Taxas com adquirentes e gateways acima do necessário</div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="section-label">Como trabalho</p>
+    <div class="servicos">
+      <div class="servico">
+        <span class="servico-tag">Otimização de pagamentos</span>
+        <p class="servico-title">Diagnóstico ou execução</p>
+        <p class="servico-desc">Para e-commerces que querem melhorar a performance da operação de pagamentos — aprovação, antifraude, checkout e estratégia de adquirentes.</p>
+        <ul class="servico-items">
+          <li>Diagnóstico completo do fluxo de pagamento</li>
+          <li>Identificação de onde e por que você está perdendo receita</li>
+          <li>Execução das melhorias junto com o seu time</li>
+          <li>Otimização de antifraude sem bloquear vendas legítimas</li>
+          <li>Negociação de taxas com adquirentes e gateways</li>
+        </ul>
+      </div>
+      <div class="servico">
+        <span class="servico-tag">Modelagem de negócio</span>
+        <p class="servico-title">Estruturação de modelos com pagamentos</p>
+        <p class="servico-desc">Para quem quer construir ou reestruturar um modelo de negócio baseado em pagamentos — clubes de assinatura, recorrência, marketplaces.</p>
+        <ul class="servico-items">
+          <li>Desenho do fluxo financeiro e de pagamento</li>
+          <li>Estratégia de adquirente e gateway para o modelo</li>
+          <li>Régua de cobrança e gestão de churn involuntário</li>
+          <li>Estruturação técnica e comercial do modelo</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="section-label">Sobre mim</p>
+    <div class="perfil">
+      <div class="avatar">
+        <!-- Substitua pelo caminho da sua foto: <img src="foto.jpg" alt="Pedro Caldas"> -->
+        <span class="avatar-initials">PC</span>
+      </div>
+      <div>
+        <p class="perfil-nome">Pedro Caldas</p>
+        <p class="perfil-desc">Mais de 8 anos no mercado de pagamentos, estruturando e implementando soluções para e-commerces brasileiros — de mid-market a grandes operações acima de R$10MM/mês. Trabalhei diretamente com marcas como:</p>
+        <div class="tags-group">
+          <span class="tag-marca">Wpink</span>
+          <span class="tag-marca">Coffee++</span>
+          <span class="tag-marca">Samsonite</span>
+          <span class="tag-marca">Pampili</span>
+        </div>
+        <span class="stack-label">Plataformas e integrações</span>
+        <div class="tags-group">
+          <span class="tag-platform">Shopify</span>
+          <span class="tag-platform">VTEX</span>
+          <span class="tag-platform">Salesforce Commerce Cloud</span>
+          <span class="tag-platform">Integrações via API</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="cta-block">
+      <p class="cta-title">Vamos conversar?</p>
+      <p class="cta-sub">Me conta o desafio da sua operação.</p>
+      <!-- Substitua SEUNUMERO pelo seu número com DDI: 5511999999999 -->
+      <a class="cta-btn" href="https://wa.me/SEUNUMERO" target="_blank">Falar pelo WhatsApp</a>
+    </div>
+
+  </div>
+</body>
+</html>
