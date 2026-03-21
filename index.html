@@ -20,6 +20,7 @@
     }
 
     nav {
+      justify-content: space-between;
       width: 100%;
       padding: 1.5rem 4rem;
       display: flex;
@@ -27,6 +28,17 @@
       border-bottom: 0.5px solid #1e2740;
     }
     .nav-logo img { height: 96px; width: 96px; }
+    .nav-cta {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffffff;
+      background: #2563EB;
+      padding: 9px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #1d4ed8; }
 
     .hero {
       width: 100%;
@@ -387,7 +399,8 @@
     }
 
     @media (max-width: 900px) {
-      nav { padding: 1.25rem 1.5rem; }
+      nav {
+      justify-content: space-between; padding: 1.25rem 1.5rem; }
       .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2.5rem; }
       .hero h1 { font-size: 28px; }
       .section { padding: 3rem 1.5rem; }
@@ -403,6 +416,7 @@
 
   <nav>
     <a class="nav-logo" href="/"><img src="Minimalist Initial Circular Monogram Logo-2.png" alt="PC"></a>
+    <a class="nav-cta" href="https://wa.me/5511945471069" target="_blank">Falar pelo WhatsApp</a>
   </nav>
 
   <div class="hero">
@@ -537,6 +551,8 @@
             <span class="tag-marca">Coffee++</span>
             <span class="tag-marca">Samsonite</span>
             <span class="tag-marca">Pampili</span>
+            <span class="tag-marca">Baggio Café</span>
+            <span class="tag-marca">Insider Store</span>
           </div>
           <span class="stack-label">Plataformas e integrações</span>
           <div class="tags-group">
