@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedro Caldas — Consultoria em Pagamentos</title>
   <meta name="description" content="Consultoria especializada em otimização de pagamentos para e-commerces brasileiros.">
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -68,7 +68,12 @@
       color: #ffffff;
       margin-bottom: 1.25rem;
     }
-    .hero-sub { font-size: 16px; color: #8892a4; line-height: 1.7; }
+    .hero-sub { font-size: 16px; color: #8892a4; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-stats { display: flex; flex-direction: column; gap: 12px; }
+    .hero-stat { display: flex; align-items: flex-start; gap: 12px; }
+    .hero-stat-line { width: 2px; height: 100%; background: #2563EB; flex-shrink: 0; min-height: 36px; border-radius: 2px; }
+    .hero-stat-text { font-size: 14px; color: #8892a4; line-height: 1.5; }
+    .hero-stat-text strong { color: #ffffff; font-weight: 500; display: block; font-size: 15px; }
     .dashboard { background: #0d1526; border-radius: 16px; border: 0.5px solid #1e2740; padding: 1.5rem; }
     .dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
     .dash-header-label { font-size: 11px; color: #3d4f6b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
@@ -155,6 +160,20 @@
       <div class="hero-badge">Consultoria em Pagamentos</div>
       <h1>Ajudo e-commerces a estruturar e otimizar operações de pagamento.</h1>
       <p class="hero-sub">Do diagnóstico à execução, junto com o seu time.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-line"></div>
+          <div class="hero-stat-text"><strong>8+ anos de experiência em pagamentos</strong>Implementando soluções em operações reais de e-commerce</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-line"></div>
+          <div class="hero-stat-text"><strong>Principais plataformas de e-commerce</strong>Shopify, VTEX, Salesforce Commerce Cloud e integrações via API</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-line"></div>
+          <div class="hero-stat-text"><strong>Cases com faturamento acima de R$10MM/mês</strong>Wpink, Coffee++, Samsonite, Pampili, Baggio Café, Insider Store</div>
+        </div>
+      </div>
     </div>
 
     <div class="dashboard">
