@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedro Caldas — Consultoria em Pagamentos</title>
   <meta name="description" content="Consultoria especializada em otimização de pagamentos para e-commerces brasileiros.">
-  <link rel="icon" type="image/png" href="mMinimalist Initial Circular Monogram Logo-2.png">
+  <link rel="icon" type="image/png" href="Minimalist Initial Circular Monogram Logo-2.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,7 @@
       align-items: center;
       border-bottom: 0.5px solid #1e2740;
     }
-    .nav-logo img { height: 72px; width: 72px; }
+    .nav-logo img { height: 96px; width: 96px; }
 
     .hero {
       width: 100%;
@@ -34,8 +34,8 @@
       margin: 0 auto;
       padding: 6rem 4rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 5rem;
       align-items: center;
     }
     .hero-badge {
@@ -62,27 +62,153 @@
       color: #8892a4;
       line-height: 1.7;
     }
-    .hero-right {
-      border: 0.5px solid #1e2740;
-      border-radius: 16px;
-      padding: 2.5rem;
+
+    /* DASHBOARD */
+    .dashboard {
       background: #0d1526;
+      border-radius: 16px;
+      border: 0.5px solid #1e2740;
+      padding: 1.5rem;
     }
-    .hero-quote {
-      font-size: 20px;
-      font-weight: 400;
+    .dash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .dash-header-label {
+      font-size: 11px;
+      color: #3d4f6b;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+    .dash-header-title {
+      font-size: 14px;
+      font-weight: 500;
       color: #ffffff;
-      line-height: 1.6;
-      font-style: italic;
     }
-    .hero-quote-line {
-      display: block;
-      width: 32px;
-      height: 2px;
+    .dash-period {
+      font-size: 11px;
+      background: #0f2156;
+      color: #3B82F6;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .dash-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+    .dash-metric {
+      background: #0a0f1e;
+      border: 0.5px solid #1e2740;
+      border-radius: 10px;
+      padding: 0.875rem;
+    }
+    .dash-metric-label {
+      font-size: 11px;
+      color: #3d4f6b;
+      margin-bottom: 4px;
+    }
+    .dash-metric-value {
+      font-size: 22px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .dash-metric-delta {
+      font-size: 11px;
+      margin-top: 4px;
+    }
+    .delta-neg { color: #e24b4a; }
+    .delta-neu { color: #3d4f6b; }
+    .dash-bars {
+      background: #0a0f1e;
+      border: 0.5px solid #1e2740;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .dash-bars-label {
+      font-size: 11px;
+      color: #3d4f6b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.875rem;
+    }
+    .bar-item { margin-bottom: 8px; }
+    .bar-item:last-child { margin-bottom: 0; }
+    .bar-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .bar-name { font-size: 12px; color: #8892a4; }
+    .bar-val { font-size: 12px; color: #ffffff; font-weight: 500; }
+    .bar-track {
+      background: #1e2740;
+      border-radius: 4px;
+      height: 5px;
+    }
+    .bar-fill {
       background: #2563EB;
-      margin-top: 1.5rem;
+      height: 5px;
+      border-radius: 4px;
+    }
+    .dash-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .dash-rejection {
+      background: #0a0f1e;
+      border: 0.5px solid #1e2740;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .dash-rejection-label {
+      font-size: 11px;
+      color: #3d4f6b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .rejection-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .rejection-row:last-child { margin-bottom: 0; }
+    .rejection-name { font-size: 12px; color: #8892a4; }
+    .rejection-val { font-size: 12px; color: #ffffff; }
+    .rejection-val.alert { color: #e24b4a; }
+    .dash-opportunity {
+      background: #0a0f1e;
+      border: 0.5px solid #1e2740;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .dash-opp-label {
+      font-size: 11px;
+      color: #3d4f6b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .dash-opp-text {
+      font-size: 12px;
+      color: #8892a4;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .dash-opp-value {
+      font-size: 22px;
+      font-weight: 500;
+      color: #2563EB;
     }
 
+    /* SECTIONS */
     .section {
       width: 100%;
       padding: 4rem;
@@ -260,9 +386,9 @@
       color: #3d4f6b;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       nav { padding: 1.25rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2.5rem; }
       .hero h1 { font-size: 28px; }
       .section { padding: 3rem 1.5rem; }
       .dores { grid-template-columns: 1fr 1fr; }
@@ -280,14 +406,74 @@
   </nav>
 
   <div class="hero">
-    <div class="hero-left">
+    <div>
       <div class="hero-badge">Consultoria em Pagamentos</div>
       <h1>Ajudo e-commerces a estruturar e otimizar operações de pagamento.</h1>
       <p class="hero-sub">Do diagnóstico à execução, junto com o seu time.</p>
     </div>
-    <div class="hero-right">
-      <p class="hero-quote">"Taxa de aprovação, chargeback, antifraude. São detalhes que parecem técnicos mas definem a receita do mês."</p>
-      <span class="hero-quote-line"></span>
+
+    <div class="dashboard">
+      <div class="dash-header">
+        <div>
+          <p class="dash-header-label">Visão geral</p>
+          <p class="dash-header-title">Operação de pagamentos</p>
+        </div>
+        <span class="dash-period">Últimos 30 dias</span>
+      </div>
+
+      <div class="dash-metrics">
+        <div class="dash-metric">
+          <p class="dash-metric-label">Taxa de aprovação</p>
+          <p class="dash-metric-value">78,3%</p>
+          <p class="dash-metric-delta delta-neg">▼ 2,1% vs mês anterior</p>
+        </div>
+        <div class="dash-metric">
+          <p class="dash-metric-label">Chargeback</p>
+          <p class="dash-metric-value">1,8%</p>
+          <p class="dash-metric-delta delta-neg">▲ 0,4% vs mês anterior</p>
+        </div>
+        <div class="dash-metric">
+          <p class="dash-metric-label">Receita perdida</p>
+          <p class="dash-metric-value">R$84k</p>
+          <p class="dash-metric-delta delta-neu">em rejeições no período</p>
+        </div>
+      </div>
+
+      <div class="dash-bars">
+        <p class="dash-bars-label">Aprovação por método de pagamento</p>
+        <div class="bar-item">
+          <div class="bar-row"><span class="bar-name">Pix</span><span class="bar-val">97,2%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:97%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-row"><span class="bar-name">Cartão de crédito</span><span class="bar-val">76,4%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:76%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-row"><span class="bar-name">Cartão de débito</span><span class="bar-val">83,1%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:83%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-row"><span class="bar-name">Boleto</span><span class="bar-val">61,8%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+        </div>
+      </div>
+
+      <div class="dash-bottom">
+        <div class="dash-rejection">
+          <p class="dash-rejection-label">Motivos de rejeição</p>
+          <div class="rejection-row"><span class="rejection-name">Saldo insuficiente</span><span class="rejection-val">34%</span></div>
+          <div class="rejection-row"><span class="rejection-name">Bloqueio antifraude</span><span class="rejection-val alert">28%</span></div>
+          <div class="rejection-row"><span class="rejection-name">Timeout</span><span class="rejection-val alert">19%</span></div>
+          <div class="rejection-row"><span class="rejection-name">Dados inválidos</span><span class="rejection-val">12%</span></div>
+          <div class="rejection-row"><span class="rejection-name">Outros</span><span class="rejection-val">7%</span></div>
+        </div>
+        <div class="dash-opportunity">
+          <p class="dash-opp-label">Oportunidade identificada</p>
+          <p class="dash-opp-text">28% das rejeições por antifraude são falsos positivos. Corrigindo esse ponto, a operação recupera aproximadamente</p>
+          <p class="dash-opp-value">R$23k/mês</p>
+        </div>
+      </div>
     </div>
   </div>
 
