@@ -3,324 +3,695 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedro Caldas — Consultoria em Pagamentos</title>
-  <meta name="description" content="Consultoria especializada em otimização de pagamentos para e-commerces brasileiros.">
+  <title>Approva — Pagamentos para E-commerce</title>
+  <meta name="description" content="Transformamos pagamentos em vantagem competitiva para e-commerces brasileiros.">
   <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #060912;
+      --bg2: #0c1220;
+      --bg3: #111827;
+      --blue: #2563EB;
+      --blue-light: #3B82F6;
+      --blue-glow: rgba(37,99,235,0.15);
+      --text: #f0f4ff;
+      --muted: #6b7ea0;
+      --border: rgba(255,255,255,0.06);
+      --border-blue: rgba(37,99,235,0.3);
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: #0a0f1e;
-      color: #f0f0f0;
-      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+
+    /* NAV */
     nav {
-      width: 100%;
-      padding: 0.75rem 4rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 0.5px solid #1e2740;
+      background: rgba(6,9,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
     }
-    .nav-logo img { height: 96px; width: 96px; }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
     .nav-cta {
       font-size: 14px;
       font-weight: 500;
-      color: #ffffff;
-      background: #2563EB;
+      color: #fff;
+      background: var(--blue);
       padding: 9px 22px;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.15s;
     }
-    .nav-cta:hover { background: #1d4ed8; }
+    .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+    /* HERO */
     .hero {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 5rem;
-      align-items: start;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 4rem 5rem;
     }
-    .hero-left { padding-top: 0.5rem; }
-    .hero-badge {
-      display: inline-block;
-      font-size: 11px;
+
+    /* SVG background illustration */
+    .hero-bg {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      right: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #ffffff;
-      background: #2563EB;
-      padding: 4px 12px;
-      border-radius: 6px;
-      margin-bottom: 1.5rem;
+      color: var(--blue-light);
+      margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--blue-light);
     }
     .hero h1 {
-      font-size: 42px;
+      font-family: 'Syne', sans-serif;
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--blue-light);
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      font-size: 15px;
       font-weight: 500;
-      line-height: 1.2;
-      color: #ffffff;
+      color: #fff;
+      background: var(--blue);
+      padding: 13px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--text); }
+    .btn-ghost::after { content: '→'; }
+
+    /* METRICS STRIP */
+    .metrics-strip {
+      background: var(--bg2);
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 2rem 4rem;
+    }
+    .metrics-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .metric {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .metric-line {
+      width: 2px;
+      height: 48px;
+      background: var(--blue);
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+    .metric-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .metric-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 4rem;
+      border-top: 0.5px solid var(--border);
+    }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 1rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: var(--blue-light);
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 1rem;
+      max-width: 560px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 3rem;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--bg);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: var(--bg2); }
+    .service-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
       margin-bottom: 1.25rem;
     }
-    .hero-sub { font-size: 16px; color: #8892a4; line-height: 1.7; margin-bottom: 2rem; }
-    .hero-stats { display: flex; flex-direction: column; gap: 12px; }
-    .hero-stat { display: flex; align-items: flex-start; gap: 12px; }
-    .hero-stat-line { width: 2px; height: 100%; background: #2563EB; flex-shrink: 0; min-height: 36px; border-radius: 2px; }
-    .hero-stat-text { font-size: 14px; color: #8892a4; line-height: 1.5; }
-    .hero-stat-text strong { color: #ffffff; font-weight: 500; display: block; font-size: 15px; }
-    .dashboard { background: #0d1526; border-radius: 16px; border: 0.5px solid #1e2740; padding: 1.5rem; }
-    .dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
-    .dash-header-label { font-size: 11px; color: #3d4f6b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
-    .dash-header-title { font-size: 14px; font-weight: 500; color: #ffffff; }
-    .dash-period { font-size: 11px; background: #0f2156; color: #3B82F6; padding: 3px 10px; border-radius: 6px; }
-    .dash-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1rem; }
-    .dash-metric { background: #0a0f1e; border: 0.5px solid #1e2740; border-radius: 10px; padding: 0.875rem; }
-    .dash-metric-label { font-size: 11px; color: #3d4f6b; margin-bottom: 4px; }
-    .dash-metric-value { font-size: 22px; font-weight: 500; color: #ffffff; }
-    .dash-metric-delta { font-size: 11px; margin-top: 4px; }
-    .delta-neg { color: #e24b4a; }
-    .delta-neu { color: #3d4f6b; }
-    .dash-bars { background: #0a0f1e; border: 0.5px solid #1e2740; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
-    .dash-bars-label { font-size: 11px; color: #3d4f6b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.875rem; }
-    .bar-item { margin-bottom: 8px; }
-    .bar-item:last-child { margin-bottom: 0; }
-    .bar-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
-    .bar-name { font-size: 12px; color: #8892a4; }
-    .bar-val { font-size: 12px; color: #ffffff; font-weight: 500; }
-    .bar-track { background: #1e2740; border-radius: 4px; height: 5px; }
-    .bar-fill { background: #2563EB; height: 5px; border-radius: 4px; }
-    .dash-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .dash-rejection { background: #0a0f1e; border: 0.5px solid #1e2740; border-radius: 10px; padding: 1rem; }
-    .dash-rejection-label { font-size: 11px; color: #3d4f6b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
-    .rejection-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
-    .rejection-row:last-child { margin-bottom: 0; }
-    .rejection-name { font-size: 12px; color: #8892a4; }
-    .rejection-val { font-size: 12px; color: #ffffff; }
-    .rejection-val.alert { color: #e24b4a; }
-    .dash-opportunity { background: #0a0f1e; border: 0.5px solid #1e2740; border-radius: 10px; padding: 1rem; }
-    .dash-opp-label { font-size: 11px; color: #3d4f6b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
-    .dash-opp-text { font-size: 12px; color: #8892a4; line-height: 1.6; margin-bottom: 0.5rem; }
-    .dash-opp-value { font-size: 22px; font-weight: 500; color: #2563EB; }
-    .section { width: 100%; padding: 4rem; border-top: 0.5px solid #1e2740; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-alt { background: #0d1526; }
-    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3d4f6b; margin-bottom: 2rem; }
-    .dores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .dor { background: #0d1526; border: 0.5px solid #1e2740; border-left: 2px solid #2563EB; padding: 1rem 1.25rem; font-size: 14px; color: #8892a4; line-height: 1.5; }
-    .servicos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .servico { background: #0a0f1e; border: 0.5px solid #1e2740; border-radius: 12px; padding: 1.5rem; }
-    .servico-tag { font-size: 11px; font-weight: 500; background: #0f2156; color: #3B82F6; padding: 3px 10px; border-radius: 6px; display: inline-block; margin-bottom: 1rem; }
-    .servico-title { font-size: 18px; font-weight: 500; color: #ffffff; margin-bottom: 0.5rem; }
-    .servico-desc { font-size: 14px; color: #8892a4; line-height: 1.6; margin-bottom: 1rem; }
-    .servico-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .servico-items li { font-size: 13px; color: #8892a4; padding-left: 1rem; position: relative; line-height: 1.5; }
-    .servico-items li::before { content: "·"; position: absolute; left: 0; color: #2563EB; font-size: 16px; line-height: 1.3; }
-    .sobre-grid { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: start; }
-    .sobre-foto { width: 96px; height: 96px; border-radius: 50%; overflow: hidden; border: 1px solid #2563EB; flex-shrink: 0; }
-    .sobre-foto img { width: 100%; height: 100%; object-fit: cover; }
-    .sobre-nome { font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 0.5rem; }
-    .sobre-desc { font-size: 14px; color: #8892a4; line-height: 1.7; margin-bottom: 1.25rem; }
-    .tags-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
-    .tag-marca { font-size: 12px; background: #0a0f1e; border: 0.5px solid #1e2740; border-radius: 6px; padding: 5px 12px; color: #8892a4; }
-    .tag-platform { font-size: 12px; background: #0a0f1e; border: 0.5px solid #2563EB; border-radius: 6px; padding: 5px 12px; color: #3B82F6; font-weight: 500; }
-    .stack-label { font-size: 11px; color: #3d4f6b; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.75rem; }
-    .cta-section { text-align: center; padding: 6rem 4rem; border-top: 0.5px solid #1e2740; }
-    .cta-section h2 { font-size: 36px; font-weight: 500; color: #ffffff; margin-bottom: 0.75rem; }
-    .cta-section p { font-size: 16px; color: #8892a4; margin-bottom: 2rem; }
-    .cta-btn { display: inline-block; background: #2563EB; color: #ffffff; font-size: 15px; font-weight: 500; padding: 13px 32px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
-    .cta-btn:hover { background: #1d4ed8; }
-    footer { border-top: 0.5px solid #1e2740; padding: 2rem 4rem; text-align: center; font-size: 13px; color: #3d4f6b; }
+    .service-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .service-items li {
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .service-items li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+
+    /* PROBLEM SECTION */
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .problem-card {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-left: 2px solid var(--blue);
+      padding: 1.25rem;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .problem-card:hover {
+      border-left-color: var(--blue-light);
+      color: var(--text);
+    }
+
+    /* CASES */
+    .cases-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .case-tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .case-tag:hover {
+      color: var(--text);
+      border-color: var(--border-blue);
+    }
+    .platforms-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 1.5rem;
+    }
+    .platform-tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blue-light);
+      background: rgba(37,99,235,0.08);
+      border: 0.5px solid var(--border-blue);
+      border-radius: 100px;
+      padding: 6px 16px;
+    }
+
+    /* CTA SECTION */
+    .cta-wrap {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(37,99,235,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-wrap h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+    .cta-wrap p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--blue); }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content > * {
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-eyebrow { animation-delay: 0.1s; }
+    .hero h1 { animation-delay: 0.2s; }
+    .hero-sub { animation-delay: 0.3s; }
+    .hero-actions { animation-delay: 0.4s; }
+
     @media (max-width: 900px) {
-      nav { padding: 0.75rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; padding: 2.5rem 1.5rem; gap: 2rem; }
-      .hero h1 { font-size: 28px; }
-      .section { padding: 3rem 1.5rem; }
-      .dores { grid-template-columns: 1fr 1fr; }
-      .servicos { grid-template-columns: 1fr; }
-      .cta-section { padding: 4rem 1.5rem; }
-      footer { padding: 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .hero h1 { font-size: 36px; }
+      .hero-bg { opacity: 0.15; width: 100%; }
+      .metrics-strip { padding: 2rem 1.5rem; }
+      .metrics-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      section { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .problems-grid { grid-template-columns: 1fr 1fr; }
+      .cta-wrap { padding: 2.5rem 1.5rem; }
+      .cta-wrap h2 { font-size: 28px; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="nav-logo" href="/"><img src="logo.png" alt="PC"></a>
+    <a class="nav-logo" href="/">Appro<span>va</span></a>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+    </ul>
     <a class="nav-cta" href="https://wa.me/5511945471069" target="_blank">Falar pelo WhatsApp</a>
   </nav>
 
   <div class="hero">
-    <div class="hero-left">
-      <div class="hero-badge">Consultoria em Pagamentos</div>
-      <h1>Ajudo e-commerces a estruturar e otimizar operações de pagamento.</h1>
-      <p class="hero-sub">Do diagnóstico à execução, junto com o seu time.</p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-line"></div>
-          <div class="hero-stat-text"><strong>8+ anos de experiência em pagamentos</strong>Implementando soluções em operações reais de e-commerce</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-line"></div>
-          <div class="hero-stat-text"><strong>Principais plataformas de e-commerce</strong>Shopify, VTEX, Salesforce Commerce Cloud e integrações via API</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-line"></div>
-          <div class="hero-stat-text"><strong>Cases com faturamento acima de R$10MM/mês</strong>Wpink, Coffee++, Samsonite, Pampili, Baggio Café, Insider Store</div>
-        </div>
+    <div class="hero-glow"></div>
+
+    <svg class="hero-bg" viewBox="0 0 800 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="80" y="60" width="260" height="160" rx="12" stroke="#2563EB" stroke-width="0.8" fill="rgba(37,99,235,0.03)"/>
+      <text x="100" y="95" font-family="monospace" font-size="10" fill="#3B82F6" opacity="0.6">taxa de aprovação</text>
+      <text x="100" y="125" font-family="monospace" font-size="28" font-weight="bold" fill="#f0f4ff" opacity="0.9">78,3%</text>
+      <text x="100" y="148" font-family="monospace" font-size="10" fill="#e24b4a" opacity="0.8">▼ 2,1% vs mês anterior</text>
+      <rect x="100" y="165" width="180" height="4" rx="2" fill="#1e2740"/>
+      <rect x="100" y="165" width="141" height="4" rx="2" fill="#2563EB" opacity="0.7"/>
+
+      <rect x="380" y="60" width="260" height="160" rx="12" stroke="#2563EB" stroke-width="0.8" fill="rgba(37,99,235,0.03)"/>
+      <text x="400" y="95" font-family="monospace" font-size="10" fill="#3B82F6" opacity="0.6">chargeback</text>
+      <text x="400" y="125" font-family="monospace" font-size="28" font-weight="bold" fill="#f0f4ff" opacity="0.9">1,8%</text>
+      <text x="400" y="148" font-family="monospace" font-size="10" fill="#e24b4a" opacity="0.8">▲ 0,4% vs mês anterior</text>
+      <rect x="400" y="165" width="180" height="4" rx="2" fill="#1e2740"/>
+      <rect x="400" y="165" width="32" height="4" rx="2" fill="#e24b4a" opacity="0.7"/>
+
+      <rect x="80" y="260" width="560" height="200" rx="12" stroke="#2563EB" stroke-width="0.8" fill="rgba(37,99,235,0.03)"/>
+      <text x="100" y="295" font-family="monospace" font-size="10" fill="#3B82F6" opacity="0.6">APROVAÇÃO POR MÉTODO</text>
+      <text x="100" y="325" font-family="monospace" font-size="11" fill="#6b7ea0">Pix</text>
+      <rect x="160" y="315" width="300" height="5" rx="2" fill="#1e2740"/>
+      <rect x="160" y="315" width="291" height="5" rx="2" fill="#2563EB" opacity="0.8"/>
+      <text x="475" y="325" font-family="monospace" font-size="11" fill="#f0f4ff">97,2%</text>
+      <text x="100" y="355" font-family="monospace" font-size="11" fill="#6b7ea0">Cartão</text>
+      <rect x="160" y="345" width="300" height="5" rx="2" fill="#1e2740"/>
+      <rect x="160" y="345" width="229" height="5" rx="2" fill="#2563EB" opacity="0.6"/>
+      <text x="475" y="355" font-family="monospace" font-size="11" fill="#f0f4ff">76,4%</text>
+      <text x="100" y="385" font-family="monospace" font-size="11" fill="#6b7ea0">Boleto</text>
+      <rect x="160" y="375" width="300" height="5" rx="2" fill="#1e2740"/>
+      <rect x="160" y="375" width="185" height="5" rx="2" fill="#2563EB" opacity="0.4"/>
+      <text x="475" y="385" font-family="monospace" font-size="11" fill="#f0f4ff">61,8%</text>
+      <text x="100" y="415" font-family="monospace" font-size="11" fill="#6b7ea0">Débito</text>
+      <rect x="160" y="405" width="300" height="5" rx="2" fill="#1e2740"/>
+      <rect x="160" y="405" width="249" height="5" rx="2" fill="#2563EB" opacity="0.7"/>
+      <text x="475" y="415" font-family="monospace" font-size="11" fill="#f0f4ff">83,1%</text>
+
+      <rect x="80" y="500" width="260" height="140" rx="12" stroke="#e24b4a" stroke-width="0.8" fill="rgba(226,75,74,0.03)"/>
+      <text x="100" y="530" font-family="monospace" font-size="10" fill="#e24b4a" opacity="0.8">MOTIVOS DE REJEIÇÃO</text>
+      <text x="100" y="558" font-family="monospace" font-size="11" fill="#6b7ea0">Antifraude (falso positivo)</text>
+      <text x="295" y="558" font-family="monospace" font-size="11" fill="#e24b4a">28%</text>
+      <text x="100" y="580" font-family="monospace" font-size="11" fill="#6b7ea0">Timeout</text>
+      <text x="295" y="580" font-family="monospace" font-size="11" fill="#e24b4a">19%</text>
+      <text x="100" y="602" font-family="monospace" font-size="11" fill="#6b7ea0">Saldo insuficiente</text>
+      <text x="295" y="602" font-family="monospace" font-size="11" fill="#6b7ea0">34%</text>
+
+      <rect x="380" y="500" width="260" height="140" rx="12" stroke="#2563EB" stroke-width="0.8" fill="rgba(37,99,235,0.05)"/>
+      <text x="400" y="530" font-family="monospace" font-size="10" fill="#3B82F6" opacity="0.8">OPORTUNIDADE</text>
+      <text x="400" y="560" font-family="monospace" font-size="11" fill="#6b7ea0">Corrigindo antifraude,</text>
+      <text x="400" y="580" font-family="monospace" font-size="11" fill="#6b7ea0">recuperação estimada:</text>
+      <text x="400" y="615" font-family="monospace" font-size="22" font-weight="bold" fill="#2563EB">R$23k/mês</text>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Agência de Pagamentos</div>
+      <h1>Transformamos pagamentos em <em>vantagem competitiva.</em></h1>
+      <p class="hero-sub">Para e-commerces brasileiros que querem vender mais com o mesmo tráfego. Do diagnóstico à execução, com profundidade técnica e visão de negócio.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://wa.me/5511945471069" target="_blank">Falar pelo WhatsApp</a>
+        <a class="btn-ghost" href="#servicos">Ver serviços</a>
       </div>
     </div>
+  </div>
 
-    <div class="dashboard">
-      <div class="dash-header">
+  <div class="metrics-strip">
+    <div class="metrics-inner">
+      <div class="metric">
+        <div class="metric-line"></div>
         <div>
-          <p class="dash-header-label">Visão geral</p>
-          <p class="dash-header-title">Operação de pagamentos</p>
-        </div>
-        <span class="dash-period">Últimos 30 dias</span>
-      </div>
-      <div class="dash-metrics">
-        <div class="dash-metric">
-          <p class="dash-metric-label">Taxa de aprovação</p>
-          <p class="dash-metric-value">78,3%</p>
-          <p class="dash-metric-delta delta-neg">▼ 2,1% vs mês anterior</p>
-        </div>
-        <div class="dash-metric">
-          <p class="dash-metric-label">Chargeback</p>
-          <p class="dash-metric-value">1,8%</p>
-          <p class="dash-metric-delta delta-neg">▲ 0,4% vs mês anterior</p>
-        </div>
-        <div class="dash-metric">
-          <p class="dash-metric-label">Receita perdida</p>
-          <p class="dash-metric-value">R$84k</p>
-          <p class="dash-metric-delta delta-neu">em rejeições no período</p>
+          <p class="metric-title">8+ anos em pagamentos</p>
+          <p class="metric-desc">Implementando soluções em operações reais de e-commerce</p>
         </div>
       </div>
-      <div class="dash-bars">
-        <p class="dash-bars-label">Aprovação por método de pagamento</p>
-        <div class="bar-item">
-          <div class="bar-row"><span class="bar-name">Pix</span><span class="bar-val">97,2%</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width:97%"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-row"><span class="bar-name">Cartão de crédito</span><span class="bar-val">76,4%</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width:76%"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-row"><span class="bar-name">Cartão de débito</span><span class="bar-val">83,1%</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width:83%"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-row"><span class="bar-name">Boleto</span><span class="bar-val">61,8%</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+      <div class="metric">
+        <div class="metric-line"></div>
+        <div>
+          <p class="metric-title">Principais plataformas</p>
+          <p class="metric-desc">Shopify, VTEX, Salesforce Commerce Cloud e integrações via API</p>
         </div>
       </div>
-      <div class="dash-bottom">
-        <div class="dash-rejection">
-          <p class="dash-rejection-label">Motivos de rejeição</p>
-          <div class="rejection-row"><span class="rejection-name">Saldo insuficiente</span><span class="rejection-val">34%</span></div>
-          <div class="rejection-row"><span class="rejection-name">Bloqueio antifraude</span><span class="rejection-val alert">28%</span></div>
-          <div class="rejection-row"><span class="rejection-name">Timeout</span><span class="rejection-val alert">19%</span></div>
-          <div class="rejection-row"><span class="rejection-name">Dados inválidos</span><span class="rejection-val">12%</span></div>
-          <div class="rejection-row"><span class="rejection-name">Outros</span><span class="rejection-val">7%</span></div>
-        </div>
-        <div class="dash-opportunity">
-          <p class="dash-opp-label">Oportunidade identificada</p>
-          <p class="dash-opp-text">28% das rejeições por antifraude são falsos positivos. Corrigindo esse ponto, a operação recupera aproximadamente</p>
-          <p class="dash-opp-value">R$23k/mês</p>
+      <div class="metric">
+        <div class="metric-line"></div>
+        <div>
+          <p class="metric-title">Cases acima de R$10MM/mês</p>
+          <p class="metric-desc">Operações mid-market e grandes players do e-commerce brasileiro</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section">
+  <section id="problemas">
     <div class="section-inner">
-      <p class="section-label">Situações em que posso ajudar</p>
-      <div class="dores">
-        <div class="dor">Taxa de aprovação abaixo do benchmark do setor</div>
-        <div class="dor">Chargeback crescendo sem causa clara</div>
-        <div class="dor">Checkout com atrito que ninguém sabe medir</div>
-        <div class="dor">Antifraude bloqueando vendas legítimas</div>
-        <div class="dor">Troca de adquirente sem critério técnico</div>
-        <div class="dor">Taxas com adquirentes e gateways acima do necessário</div>
+      <div class="section-eyebrow">Problemas que resolvemos</div>
+      <h2 class="section-title">Seu e-commerce provavelmente está perdendo receita sem saber onde.</h2>
+      <p class="section-sub">Os problemas de pagamento raramente aparecem sozinhos. Quando aparecem, já custaram muito.</p>
+      <div class="problems-grid">
+        <div class="problem-card">Taxa de aprovação abaixo do benchmark do setor</div>
+        <div class="problem-card">Chargeback crescendo sem causa clara</div>
+        <div class="problem-card">Checkout com atrito que ninguém sabe medir</div>
+        <div class="problem-card">Antifraude bloqueando vendas legítimas</div>
+        <div class="problem-card">Troca de adquirente sem critério técnico</div>
+        <div class="problem-card">Taxas comerciais acima do que o mercado pratica</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section section-alt">
+  <section id="servicos" style="background: var(--bg2);">
     <div class="section-inner">
-      <p class="section-label">Como trabalho</p>
-      <div class="servicos">
-        <div class="servico">
-          <span class="servico-tag">Otimização de pagamentos</span>
-          <p class="servico-title">Diagnóstico ou execução</p>
-          <p class="servico-desc">Para e-commerces que querem melhorar a performance da operação de pagamentos: aprovação, antifraude, checkout e estratégia de adquirentes.</p>
-          <ul class="servico-items">
-            <li>Diagnóstico completo do fluxo de pagamento</li>
-            <li>Identificação de onde você está perdendo receita</li>
-            <li>Execução das melhorias junto com o seu time</li>
-            <li>Otimização de antifraude sem bloquear vendas legítimas</li>
-            <li>Negociação de taxas com adquirentes e gateways</li>
+      <div class="section-eyebrow">Serviços</div>
+      <h2 class="section-title">Quatro formas de trabalhar juntos.</h2>
+      <p class="section-sub">Cada projeto começa com um diagnóstico. O que vem depois depende do que encontramos.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <p class="service-num">01</p>
+          <p class="service-title">Diagnóstico</p>
+          <p class="service-desc">Para quem sabe que tem um problema mas não sabe exatamente onde está. Mapeamos todo o fluxo de pagamentos e entregamos um relatório com achados e prioridades.</p>
+          <ul class="service-items">
+            <li>Análise completa do fluxo de pagamento</li>
+            <li>Benchmark de taxa de aprovação por setor</li>
+            <li>Identificação de gargalos e perdas</li>
+            <li>Relatório com roadmap priorizado</li>
           </ul>
         </div>
-        <div class="servico">
-          <span class="servico-tag">Modelagem de negócio</span>
-          <p class="servico-title">Estruturação de modelos com pagamentos</p>
-          <p class="servico-desc">Para quem quer construir ou reestruturar um modelo de negócio baseado em pagamentos: clubes de assinatura, recorrência, marketplaces.</p>
-          <ul class="servico-items">
+        <div class="service-card">
+          <p class="service-num">02</p>
+          <p class="service-title">Execução</p>
+          <p class="service-desc">Para quem já sabe o problema ou quer ir além do diagnóstico. Executamos as melhorias junto com o seu time — da configuração técnica à negociação comercial.</p>
+          <ul class="service-items">
+            <li>Otimização de arquitetura de pagamentos</li>
+            <li>Calibragem de antifraude e régua de risco</li>
+            <li>Orquestração de adquirentes</li>
+            <li>Negociação de taxas comerciais</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <p class="service-num">03</p>
+          <p class="service-title">Novos Modelos</p>
+          <p class="service-desc">Para quem quer construir algo novo. Estruturamos modelos de negócio baseados em pagamentos — recorrência, clubes de assinatura, split e marketplaces.</p>
+          <ul class="service-items">
             <li>Desenho do fluxo financeiro e de pagamento</li>
-            <li>Escolha de adquirente e gateway para o modelo</li>
-            <li>Régua de cobrança e gestão de churn involuntário</li>
-            <li>Estruturação técnica e comercial do modelo</li>
+            <li>Escolha de adquirente e gateway</li>
+            <li>Régua de cobrança e gestão de churn</li>
+            <li>Estruturação técnica e comercial</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <p class="service-num">04</p>
+          <p class="service-title">Acompanhamento</p>
+          <p class="service-desc">Para quem quer manter os resultados no longo prazo. Monitoramos os indicadores, identificamos oportunidades e atuamos antes que os problemas apareçam.</p>
+          <ul class="service-items">
+            <li>Monitoramento mensal de indicadores</li>
+            <li>Relatórios periódicos de performance</li>
+            <li>Suporte em negociações e mudanças</li>
+            <li>Acesso direto para dúvidas e decisões</li>
           </ul>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section">
+  <section id="cases">
     <div class="section-inner">
-      <p class="section-label">Sobre mim</p>
-      <div class="sobre-grid">
-        <div class="sobre-foto">
-          <img src="E28F7702-16EF-431A-BEC2-FDB8B8CBC337.png" alt="Pedro Caldas">
+      <div class="section-eyebrow">Cases</div>
+      <h2 class="section-title">Marcas que já tiveram seus pagamentos otimizados.</h2>
+      <p class="section-sub">Operações de diferentes portes e segmentos, com um ponto em comum: pagamentos que funcionam melhor.</p>
+      <div class="cases-list">
+        <span class="case-tag">Wpink</span>
+        <span class="case-tag">Coffee++</span>
+        <span class="case-tag">Samsonite</span>
+        <span class="case-tag">Pampili</span>
+        <span class="case-tag">Baggio Café</span>
+        <span class="case-tag">Insider Store</span>
+      </div>
+      <div class="platforms-list">
+        <span class="platform-tag">Shopify</span>
+        <span class="platform-tag">VTEX</span>
+        <span class="platform-tag">Salesforce Commerce Cloud</span>
+        <span class="platform-tag">Integrações via API</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" style="background: var(--bg2);">
+    <div class="section-inner" style="display:grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;">
+      <div>
+        <div class="section-eyebrow">Sobre</div>
+        <h2 class="section-title">Especialização que vem de dentro do mercado.</h2>
+        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:1.25rem;">A Approva nasceu de mais de 8 anos trabalhando com pagamentos no ecossistema de e-commerce brasileiro. Não como consultor externo, mas como parte das operações — implementando, negociando e otimizando junto com os times.</p>
+        <p style="font-size:15px; color:var(--muted); line-height:1.75;">Pagamentos é um tema técnico que impacta diretamente a receita. Poucas agências têm profundidade real nesse assunto. A Approva existe para preencher esse espaço.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div style="background:var(--bg); border:0.5px solid var(--border); border-radius:12px; padding:1.5rem;">
+          <p style="font-family:'Syne',sans-serif; font-size:32px; font-weight:800; color:var(--text); margin-bottom:4px;">8+</p>
+          <p style="font-size:14px; color:var(--muted);">anos de experiência em pagamentos para e-commerce</p>
         </div>
-        <div>
-          <p class="sobre-nome">Pedro Caldas</p>
-          <p class="sobre-desc">Mais de 8 anos no mercado de pagamentos implementando soluções para e-commerces brasileiros, de operações mid-market a grandes players acima de R$10MM/mês. Trabalhei diretamente com marcas como:</p>
-          <div class="tags-group">
-            <span class="tag-marca">Wpink</span>
-            <span class="tag-marca">Coffee++</span>
-            <span class="tag-marca">Samsonite</span>
-            <span class="tag-marca">Pampili</span>
-            <span class="tag-marca">Baggio Café</span>
-            <span class="tag-marca">Insider Store</span>
-          </div>
-          <span class="stack-label">Plataformas e integrações</span>
-          <div class="tags-group">
-            <span class="tag-platform">Shopify</span>
-            <span class="tag-platform">VTEX</span>
-            <span class="tag-platform">Salesforce Commerce Cloud</span>
-            <span class="tag-platform">Integrações via API</span>
-          </div>
+        <div style="background:var(--bg); border:0.5px solid var(--border); border-radius:12px; padding:1.5rem;">
+          <p style="font-family:'Syne',sans-serif; font-size:32px; font-weight:800; color:var(--text); margin-bottom:4px;">R$10MM+</p>
+          <p style="font-size:14px; color:var(--muted);">faturamento mensal das operações atendidas</p>
+        </div>
+        <div style="background:var(--bg); border:0.5px solid var(--border); border-radius:12px; padding:1.5rem;">
+          <p style="font-family:'Syne',sans-serif; font-size:32px; font-weight:800; color:var(--text); margin-bottom:4px;">4</p>
+          <p style="font-size:14px; color:var(--muted);">principais plataformas de e-commerce do mercado</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="cta-section">
-    <h2>Vamos conversar?</h2>
-    <p>Me conta o desafio da sua operação.</p>
-    <a class="cta-btn" href="https://wa.me/5511945471069" target="_blank">Falar pelo WhatsApp</a>
-  </div>
+  <section>
+    <div class="section-inner">
+      <div class="cta-wrap">
+        <div class="cta-glow"></div>
+        <h2>Pronto para melhorar seus pagamentos?</h2>
+        <p>Me conta o desafio da sua operação.</p>
+        <a class="btn-primary" href="https://wa.me/5511945471069" target="_blank" style="font-size:16px; padding:14px 32px;">Falar pelo WhatsApp</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    © 2025 Pedro Caldas — Consultoria em Pagamentos
+    <a class="footer-logo" href="/">Appro<span>va</span></a>
+    <p class="footer-copy">© 2025 Approva — Pagamentos para E-commerce</p>
   </footer>
 
 </body>
