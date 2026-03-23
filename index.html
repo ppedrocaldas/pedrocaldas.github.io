@@ -192,7 +192,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
     .metric {
@@ -323,7 +323,7 @@
     /* PROBLEM SECTION */
     .problems-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
     .problem-card {
@@ -443,6 +443,13 @@
     .hero-actions { animation-delay: 0.4s; }
 
     @media (max-width: 900px) {
+      .hero { padding: 6rem 1.5rem 3rem !important; display: flex !important; flex-direction: column !important; }
+      .hero h1 { font-size: 32px !important; letter-spacing: -0.5px !important; }
+      .hero-bg { display: none !important; }
+      .hero-glow { display: none !important; }
+      .dashboard { display: none !important; }
+      .problems-grid { grid-template-columns: 1fr !important; }
+      #sobre .section-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .hero { padding: 7rem 1.5rem 4rem; }
