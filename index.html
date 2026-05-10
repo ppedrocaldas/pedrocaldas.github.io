@@ -256,12 +256,19 @@
     .impact-footer-label { font-size: 12px; color: var(--muted2); margin-top: 4px; }
 
     /* SOBRE */
-    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .sobre-text p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 1.25rem; }
-    .sobre-stats { display: flex; flex-direction: column; gap: 1rem; }
-    .sobre-stat { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
-    .sobre-stat-num { font-size: 32px; font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: -0.5px; }
-    .sobre-stat-desc { font-size: 13px; color: var(--muted); }
+    .sobre-grid { display: grid; grid-template-columns: 200px 1fr; gap: 2.5rem; align-items: start; }
+    .sobre-foto-wrap { flex-shrink: 0; }
+    .sobre-foto { width: 200px; height: 200px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border); display: block; }
+    .sobre-nome { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .sobre-cargo { font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 1.25rem; }
+    .sobre-bio { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem; }
+    .sobre-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+    .sobre-stat { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .sobre-stat-num { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: -0.5px; }
+    .sobre-stat-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
+    .sobre-marcas-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted2); margin-bottom: 0.75rem; }
+    .sobre-marcas-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sobre-marca { font-size: 12px; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; color: var(--muted); }
 
     /* CTA */
     .cta-section { padding: 5rem 4rem; border-top: 1px solid var(--border); }
@@ -296,6 +303,8 @@
       .impact-grid { grid-template-columns: 1fr; }
       .impact-footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .sobre-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .sobre-foto { width: 120px; height: 120px; }
+      .sobre-stats-row { grid-template-columns: 1fr 1fr; }
       .cta-section { padding: 3.5rem 1.5rem; }
       .cta-wrap { padding: 2.5rem 1.5rem; }
       .cta-wrap h2 { font-size: 26px; }
@@ -491,21 +500,40 @@
 
   <div class="section section-alt" id="sobre">
     <div class="section-inner">
+      <div class="section-eyebrow">Sobre</div>
+      <h2 class="section-title">Especialização que vem de dentro do mercado.</h2>
       <div class="sobre-grid">
-        <div class="sobre-text">
-          <div class="section-eyebrow">Sobre</div>
-          <h2 class="section-title">Especialização que vem de dentro do mercado.</h2>
-          <p>A Apruv nasceu de mais de 8 anos trabalhando com pagamentos no e-commerce brasileiro. Como parte das operações, não como consultor externo: implementando, negociando e otimizando junto com os times.</p>
-          <p>Pagamentos é um tema técnico que impacta diretamente a receita. Poucos consultores têm profundidade real nisso. A Apruv existe para preencher esse espaço, com projetos sob medida.</p>
+        <div class="sobre-foto-wrap">
+          <img src="foto.png" alt="Pedro Caldas" class="sobre-foto">
         </div>
-        <div class="sobre-stats">
-          <div class="sobre-stat">
-            <p class="sobre-stat-num">8+</p>
-            <p class="sobre-stat-desc">anos de experiência em pagamentos para e-commerce</p>
+        <div>
+          <p class="sobre-nome">Pedro Caldas</p>
+          <p class="sobre-cargo">Consultor em Pagamentos</p>
+          <p class="sobre-bio">Mais de 8 anos no mercado de pagamentos, incluindo passagens por uma subadquirente brasileira, com forte atuação em arquitetura de sistemas de pagamento e antifraude, e pelo iFood Pago, desenvolvendo soluções financeiras dentro de um dos maiores ecossistemas digitais do país.</p>
+          <div class="sobre-stats-row">
+            <div class="sobre-stat">
+              <p class="sobre-stat-num">8+</p>
+              <p class="sobre-stat-desc">anos em pagamentos para e-commerce</p>
+            </div>
+            <div class="sobre-stat">
+              <p class="sobre-stat-num">5+</p>
+              <p class="sobre-stat-desc">plataformas de e-commerce suportadas</p>
+            </div>
+            <div class="sobre-stat">
+              <p class="sobre-stat-num">6+</p>
+              <p class="sobre-stat-desc">marcas relevantes do e-commerce brasileiro</p>
+            </div>
           </div>
-          <div class="sobre-stat">
-            <p class="sobre-stat-num">5+</p>
-            <p class="sobre-stat-desc">plataformas de e-commerce suportadas</p>
+          <div class="sobre-marcas">
+            <p class="sobre-marcas-label">Marcas atendidas</p>
+            <div class="sobre-marcas-list">
+              <span class="sobre-marca">Samsonite</span>
+              <span class="sobre-marca">Insider Store</span>
+              <span class="sobre-marca">Pampili</span>
+              <span class="sobre-marca">Coffee++</span>
+              <span class="sobre-marca">Wpink</span>
+              <span class="sobre-marca">Baggio Café</span>
+            </div>
           </div>
         </div>
       </div>
