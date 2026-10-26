@@ -16,7 +16,7 @@ const u=x=>Uint8Array.from(atob(x),c=>c.charCodeAt(0));
 async function open_(pw){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
 const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:u(D.s),iterations:D.n,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
 const html=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u(D.v)},key,u(D.c)));
-try{sessionStorage.setItem('apv',pw)}catch(e){}document.open();document.write(html);document.close();}
+try{sessionStorage.setItem('apv',pw)}catch(e){}const d=new DOMParser().parseFromString(html,'text/html');document.title=d.title;document.head.querySelectorAll('style').forEach(s=>s.remove());d.head.querySelectorAll('style,link').forEach(s=>{const n=document.createElement(s.tagName);for(const a of s.attributes)n.setAttribute(a.name,a.value);n.textContent=s.textContent;document.head.appendChild(n);});document.body.innerHTML=d.body.innerHTML;document.body.querySelectorAll('script').forEach(o=>{const n=document.createElement('script');n.textContent=o.textContent;o.replaceWith(n);});}
 document.getElementById('f').addEventListener('submit',async ev=>{ev.preventDefault();document.getElementById('e').textContent='';
 try{await open_(document.getElementById('p').value)}catch(e){document.getElementById('e').textContent='Senha incorreta.'}});
 try{const s=sessionStorage.getItem('apv');if(s)open_(s).catch(()=>{})}catch(e){}
